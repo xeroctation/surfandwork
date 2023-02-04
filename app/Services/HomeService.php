@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Item\CategoryItem;
 use App\Item\HomeItem;
 use App\Models\Task;
 use TCG\Voyager\Models\Category;
@@ -16,5 +17,14 @@ class HomeService
         $item -> child_categories = Category::where('parent_id','!=',null)->orderBy("order", "asc")->get();
         return $item;
 
+    }
+
+    public function category($id){
+        $item = new CategoryItem();
+        $item -> categories = Category::withTranslations(['ru', 'uz'])->where('parent_id', null)->get();
+        $item -> choosed_category = Category::withTranslations(['ru', 'uz'])->where('id', $id)->orderBy("order", "asc")->get();
+        $item -> child_categories = Category::withTranslations(['ru', 'uz'])->where('parent_id', $id)->orderBy("order", "asc")->get();
+        $item -> idR = $id;
+        return $item;
     }
 }

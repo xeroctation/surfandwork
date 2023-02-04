@@ -7,7 +7,7 @@
 
     <main>
 
-{{--        @include('homepage.categories')--}}
+        @include('homepage.categories')
 
 {{--        @include('homepage.blogs')--}}
 

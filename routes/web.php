@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Task\CreateController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Route::get('/', function () {
 
 Route::get('/',[HomeController::class, 'home'])->name('home');
 Route::get('/lang/{lang}', [HomeController::class, 'lang'])->name('lang');
+Route::get('/categories/{id}', [HomeController::class, 'category'])->name("categories");
+
 
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'loginPost'])->name('login.loginPost')->middleware('guest');

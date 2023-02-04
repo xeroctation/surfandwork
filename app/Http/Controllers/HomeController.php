@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ControllerService;
 use App\Services\HomeService;
 use Illuminate\Support\Facades\Session;
 
@@ -27,5 +28,18 @@ class HomeController
             cache()->put('lang' . auth()->id(), $lang);
         }
         return redirect()->back();
+    }
+
+    public function category($id)
+    {
+        $service = new HomeService();
+        $item = $service->category($id);
+        return view('task/choosetasks',
+            [
+                'child_categories' => $item->child_categories,
+                'categories' => $item->categories,
+                'choosed_category' => $item->choosed_category,
+                'idR' => $item->idR,
+            ]);
     }
 }
