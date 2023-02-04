@@ -36,6 +36,15 @@ Route::prefix("task")->group(function () {
         Route::post('/name', [CreateController::class, 'name_store'])->name('task.create.name.store');
         Route::get('/custom/{task}', [CreateController::class, 'custom_get'])->name('task.create.custom.get');
         Route::post('/custom/{task}/store', [CreateController::class, 'custom_store'])->name('task.create.custom.store');
+        Route::get('/address/{task}', [CreateController::class, 'address'])->name('task.create.address');
+        Route::post('/address/{task}/store', [CreateController::class, 'address_store'])->name('task.create.address.store');
+        Route::get('/date/{task}', [CreateController::class, 'date'])->name('task.create.date');
+        Route::post('/date/{task}/store', [CreateController::class, 'date_store'])->name('task.create.date.store');
+        Route::get('/budget/{task}', [CreateController::class, 'budget'])->name('task.create.budget');
+        Route::post('/budget/{task}/store', [CreateController::class, 'budget_store'])->name('task.create.budget.store');
+        Route::get('/note/{task}', [CreateController::class, 'note'])->name('task.create.note');
+        Route::post('/note/{task}/store', [CreateController::class, 'note_store'])->name('task.create.note.store');
+        Route::post('/note/{task}/images/store', [CreateController::class, 'images_store'])->name('task.create.images.store');
     });
 });
 

@@ -28,4 +28,8 @@ class Category extends Model
     public function custom_fields(){
         return $this->hasMany(CustomField::class);
     }
+
+    public function customFieldsInCustom(){
+        return $this->hasMany(CustomField::class)->where('route', CustomField::ROUTE_CUSTOM);
+    }
 }

@@ -10,35 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * @return array //Value Returned
- *@property $user
- * @property $performer
- * @property $reviews
- * @property object $category
- * @property $id
- * @property $name
- * @property $reviews_count
- * @property $responses_count
- * @property $status
- * @property $remote
- * @property $budget
- * @property $oplata
- * @property $addresses
- * @property $photos
- * @property $user_id
- * @property $category_id
- * @property $phone
- * @property $views
- * @property $start_date
- * @property $end_date End Date
- * @property $verify_code
- * @property $verify_expiration
- * @property $performer_id
- * @property $created_at
- * @property \Illuminate\Support\Carbon|mixed $deleted_at
- * @property mixed $deleted_by
- */
+
 class Task extends Model
 {
 
@@ -76,5 +48,10 @@ class Task extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function custom_field_values()
+    {
+        return $this->hasMany(CustomFieldsValue::class);
     }
 }
