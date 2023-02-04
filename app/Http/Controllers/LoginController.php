@@ -47,7 +47,7 @@ class LoginController extends Controller
 
         auth()->login($user);
         if (!$user->is_email_verified)
-            VerificationService::send_verification('email', auth()->user());
+//            VerificationService::send_verification('email', auth()->user());
 
         $request->session()->regenerate();
 
@@ -56,7 +56,7 @@ class LoginController extends Controller
             session()->forget('redirectTo');
             return redirect($url);
         }
-        return redirect()->intended('/profile');
+        return redirect()->route('home');
 
     }
 
@@ -84,10 +84,10 @@ class LoginController extends Controller
         }
         auth()->login($user);
 
-        VerificationService::send_verification('email', auth()->user());
+//        VerificationService::send_verification('email', auth()->user());
 
-        return redirect()->route('profile.profileData');
-
+//        return redirect()->route('profile.profileData');
+        return redirect()->route('home');
     }
 
 

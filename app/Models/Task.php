@@ -73,5 +73,8 @@ class Task extends Model
 
     protected $guarded = [];
 
-
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

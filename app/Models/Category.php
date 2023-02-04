@@ -24,4 +24,8 @@ class Category extends Model
     public function childs(){
         return $this->hasMany(self::class,'parent_id','id');
     }
+
+    public function custom_fields(){
+        return $this->hasMany(CustomField::class);
+    }
 }

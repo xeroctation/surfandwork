@@ -29,8 +29,8 @@
                             <ul class="bg-white border rounded-sm absolute h-full overflow-y-auto top-0 right-0 transition duration-150 ease-in-out origin-top-left w-100">
                                 @foreach ($category as $category2)
                                     <li class="rounded-sm">
-{{--                                        <a class="text-sm py-2 px-5 w-full block hover:bg-gray-100" href="{{route("task.create.name", ['category_id'=>$category2->id])}}">--}}
-                                        <a class="text-sm py-2 px-5 w-full block hover:bg-gray-100" href="#">
+                                        <a class="text-sm py-2 px-5 w-full block hover:bg-gray-100" href="{{route("task.create.name", ['category_id'=>$category2->id])}}">
+{{--                                        <a class="text-sm py-2 px-5 w-full block hover:bg-gray-100" href="#">--}}
                                             {{ $category2->getTranslatedAttribute('name',Session::get('lang') , 'fallbackLocale') }}
                                         </a>
                                     </li>

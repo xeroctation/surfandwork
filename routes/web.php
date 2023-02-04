@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Task\CreateController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,9 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
 Route::prefix("task")->group(function () {
     Route::prefix("create")->group(function () {
         Route::get('/', [CreateController::class, 'name'])->name('task.create.name');
+        Route::post('/name', [CreateController::class, 'name_store'])->name('task.create.name.store');
+        Route::get('/custom/{task}', [CreateController::class, 'custom_get'])->name('task.create.custom.get');
+        Route::post('/custom/{task}/store', [CreateController::class, 'custom_store'])->name('task.create.custom.store');
     });
 });
 
