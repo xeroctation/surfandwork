@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Task\CreateController;
+use App\Http\Controllers\Task\SearchTaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
@@ -56,6 +57,10 @@ Route::prefix("task")->group(function () {
         Route::post('/verify/{user}', [UserController::class, 'verifyProfile'])->name('task.create.verification');
     });
 });
+
+Route::get('/completed-task-names', [SearchTaskController::class, 'taskNames'])->name('search.task_name');
+Route::get('task-search', [SearchTaskController::class, 'search_new'])->name('searchTask.task_search');
+Route::post('tasks-search', [SearchTaskController::class, 'search_new2'])->name('searchTask.ajax_tasks');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

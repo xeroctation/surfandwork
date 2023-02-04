@@ -15,7 +15,7 @@
 
 {{--        @include('homepage.advantages')--}}
 
-{{--        @include('homepage.posts_section')--}}
+        @include('homepage.posts_section')
 
     </main>
 
