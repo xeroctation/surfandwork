@@ -4,14 +4,22 @@ namespace App\Http\Controllers\Task;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BudgetRequest;
+use App\Http\Requests\CreateContactRequest;
 use App\Http\Requests\CreateNameRequest;
 use App\Http\Requests\NoteRequest;
 use App\Http\Requests\TaskDateRequest;
+use App\Http\Requests\UserPhoneRequest;
+use App\Http\Requests\UserRequest;
 use App\Models\CustomField;
+use App\Models\Notification;
 use App\Models\Task;
+use App\Models\User;
+use App\Models\WalletBalance;
 use App\Services\Task\CreateService;
 use App\Services\Task\CustomFieldService;
+use App\Services\VerificationService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CreateController extends Controller
 {
@@ -162,6 +170,83 @@ class CreateController extends Controller
         }
         $task->photos = $imgData;
         $task->save();
+    }
+
+    public function contact(int $task_id)
+    {
+        $result = $this->custom_field_service->getCustomFieldsByRoute($task_id, CustomField::ROUTE_CONTACTS);
+        $task = $result['task'];
+        $custom_fields = $result['custom_fields'];
+
+        return view('create.contacts', compact('task', 'custom_fields'));
+    }
+
+
+    public function contact_store(Task $task, CreateContactRequest $request)
+    {
+        /** @var User $user */
+        $user = auth()->user();
+        $data = $request->validated();
+        if (!($user->is_phone_number_verified && $user->phone_number === $data['phone_number'])) {
+//            VerificationService::send_verification('phone', $user, $data['phone_number']);
+            $task->phone = $data['phone_number'];
+            if ($user->phone_number === null) {
+                $user->phone_number = $task->phone;
+                $user->save();
+            }
+            $task->save();
+            return redirect()->route('task.create.verify', ['task' => $task->id, 'user' => $user->id]);
+        }
+
+        $task->status = Task::STATUS_OPEN;
+        $task->user_id = $user->id;
+        $task->phone = $data['phone_number'];
+
+//        $this->service->perform_notification($task, $user);
+
+        $task->save();
+        return redirect()->route('searchTask.task', $task->id);
+    }
+
+    public function contact_register(Task $task, UserRequest $request)
+    {
+        $data = $request->validated();
+        $data['password'] = Hash::make($request->get('password'));
+        unset($data['password_confirmation']);
+        $task->phone = $data['phone_number'];
+        $task->save();
+        /** @var User $user */
+        $user = User::query()->create($data);
+        $user->phone_number = $data['phone_number'] . '_' . $user->id;
+        $user->save();
+        $wallBal = new WalletBalance();
+        $wallBal->balance = setting('admin.bonus');
+        $wallBal->user_id = $user->id;
+        $wallBal->save();
+        if(setting('admin.bonus')>0){
+            Notification::query()->create([
+                'user_id' => $user->id,
+                'description' => 'wallet',
+                'type' => Notification::WALLET_BALANCE,
+            ]);
+        }
+//        VerificationService::send_verification('phone', $user, $user->phone_number);
+        return redirect()->route('task.create.verify', ['task' => $task->id, 'user' => $user->id]);
+    }
+
+    public function contact_login(Task $task, UserPhoneRequest $request)
+    {
+        $request->validated();
+        /** @var User $user */
+        $user = User::query()->where('phone_number', $request->get('phone_number'))->first();
+        VerificationService::send_verification('phone', $user, $user->phone_number);
+        return redirect()->route('task.create.verify', ['task' => $task->id, 'user' => $user->id])->with(['not-show', 'true']);
+
+    }
+
+    public function verify(Task $task, User $user)
+    {
+        return view('create.verify', compact('task', 'user'));
     }
 
 }

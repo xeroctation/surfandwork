@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42258b3ad3940225cd3b6faf8190f53f",
+    "content-hash": "54263aede8afeb14430ca4276c7c8df4",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -5818,6 +5818,57 @@
                 }
             ],
             "time": "2022-10-20T09:12:29+00:00"
+        },
+        {
+            "name": "teamprodev/laravel_sms_eskiz",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teamprodev/laravel_sms_eskiz.git",
+                "reference": "c80b13941134593e31446a7422472cb6ac7b896b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teamprodev/laravel_sms_eskiz/zipball/c80b13941134593e31446a7422472cb6ac7b896b",
+                "reference": "c80b13941134593e31446a7422472cb6ac7b896b",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "illuminate/contracts": "^5.0|^6.0|^7.0|^8.0|^9.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Teamprodev\\Eskiz\\SmsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Sms": "Teamprodev\\Eskiz\\Sms"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Teamprodev\\Eskiz\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "keywords": [
+                "eskiz",
+                "framework",
+                "laravel",
+                "sms"
+            ],
+            "support": {
+                "issues": "https://github.com/teamprodev/laravel_sms_eskiz/issues",
+                "source": "https://github.com/teamprodev/laravel_sms_eskiz/tree/1.0"
+            },
+            "time": "2023-01-09T06:29:09+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

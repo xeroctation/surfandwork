@@ -52,28 +52,5 @@ class CreateService
         return $task;
     }
 
-    public function addAdditionalAddress($task_id, $requestAll): mixed
-    {
-        $data_inner = [];
-        $dataMain = Arr::get($requestAll, 'coordinates0', '');
-
-        for ($i = 0; $i < setting('site.max_address') ?? 10; $i++) {
-
-            $location = Arr::get($requestAll, 'location' . $i, '');
-            $coordinates = Arr::get($requestAll, 'coordinates' . $i, '');
-
-            if ($coordinates) {
-                if ($i === 0) {
-                    $data_inner['default'] = 1;
-                }
-                $data_inner['location'] = $location;
-                $data_inner['longitude'] = explode(',', $coordinates)[1];
-                $data_inner['latitude'] = explode(',', $coordinates)[0];
-                $data_inner['task_id'] = $task_id;
-                Address::query()->create($data_inner);
-            }
-        }
-        return $dataMain;
-    }
 
 }
