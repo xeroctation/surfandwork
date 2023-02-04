@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Universal services </title>
+    <title>Surf And Work </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" href="/storage/{!!str_replace("\\","/",setting('site.image'))!!}"/>
@@ -32,9 +32,9 @@
 <body class=" text-xl">
 
 {{--@include('components.preloader')--}}
-{{--<x-navbar></x-navbar>--}}
+<x-navbar></x-navbar>
 @yield('content')
-{{--<x-footer></x-footer>--}}
+<x-footer></x-footer>
 {{--@include('sweetalert::alert')--}}
 
 {{--<x-modal></x-modal>--}}

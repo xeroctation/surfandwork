@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +20,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/',[\App\Http\Controllers\HomeController::class, 'home'])->name('home');
+Route::get('/',[HomeController::class, 'home'])->name('home');
+Route::get('/lang/{lang}', [HomeController::class, 'lang'])->name('lang');
 
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'loginPost'])->name('login.loginPost')->middleware('guest');
+Route::get('/register', [UserController::class, 'signup'])->name('user.signup')->middleware('guest');
+Route::post('/register', [LoginController::class, 'customRegister'])->name('login.customRegister')->middleware('guest');
+Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
+
+Route::prefix("task")->group(function () {
+    Route::prefix("create")->group(function () {
+        Route::get('/', [CreateController::class, 'name'])->name('task.create.name');
+    });
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

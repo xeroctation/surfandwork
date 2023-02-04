@@ -47,10 +47,10 @@
                         <input name="TypeList" list="TypeList" type="text" id="header_input" maxlength="40" placeholder="{{__('Чем вам помочь...')}}" onkeyup="searchTaskName()"
                                class="input_text w-full md:px-4 px-2 py-2.5 md:py-3 rounded-xl focus:placeholder-transparent focus:outline-none focus:border-yellow-500 flex-1 text-lg border-0">
                         <datalist id="TypeList">
-{{--                            @foreach($child_categories as $category)--}}
-{{--                                <option--}}
-{{--                                    value="{{$category->getTranslatedAttribute('name', Session::get('lang') , 'fallbackLocale')}}" id="{{ $category->id }}">{{$category->getTranslatedAttribute('name', Session::get('lang') , 'fallbackLocale')}}</option>--}}
-{{--                            @endforeach--}}
+                            @foreach($child_categories as $category)
+                                <option
+                                    value="{{$category->getTranslatedAttribute('name', Session::get('lang') , 'fallbackLocale')}}" id="{{ $category->id }}">{{$category->getTranslatedAttribute('name', Session::get('lang') , 'fallbackLocale')}}</option>
+                            @endforeach
                         </datalist>
                         <a href="/task/create?category_id=22" id="createhref"
                            class="float-right sm:block hidden text-lg border bg-blue-900 z-10 border-transparent rounded-xl md:px-3.5 px-2 pt-2 pb-1.5 md:py-2.2 mr-1 md:mt-2 mt-2.5 -ml-24 md:-top-14 -top-14 relative text-white focus:outline-none">
