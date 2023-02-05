@@ -177,7 +177,7 @@
                     <div class="flex">
                         @if (session('lang') === 'ru')
                             <a href="{{route('lang', ['lang'=>'en'])}}" class="hover:text-red-500 mr-2">
-                                en
+                                EN
                             </a>
                             I
                             <a href="{{route('lang', ['lang'=>'ru'])}}" class="text-red-500 hover:text-gray-500-500 ml-2">
@@ -185,7 +185,7 @@
                             </a>
                         @else
                             <a href="{{route('lang', ['lang'=>'en'])}}" class="text-red-500 hover:text-gray-500 mr-2">
-                                en
+                                EN
                             </a>
                             I
                             <a href="{{route('lang', ['lang'=>'ru'])}}" class="hover:text-red-500 ml-2">
