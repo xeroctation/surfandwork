@@ -58,7 +58,7 @@
                         </a>
                         <a href="/task/create?category_id=22" id="createhref"
                            class="float-right sm:hidden block text-lg border bg-blue-900 z-10 border-transparent rounded-xl md:px-3.5 px-2 pt-2 pb-1.5 md:py-2 mr-1 md:mt-2 mt-2.5 -ml-24 -top-14 relative text-white focus:outline-none">
-                           {{__(' Заказать')}}
+                           {{__('Заказать')}}
                         </a>
                         <div class="mt-8 float-left">
                             <a href="{{ setting('site.instagram_url') }}">

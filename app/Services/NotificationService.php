@@ -139,7 +139,7 @@ class NotificationService
             Notification::SELECT_PERFORMER => __('Вас выбрали исполнителем', [], $locale),
             Notification::SEND_REVIEW_PERFORMER => __('Новый отзыв', [], $locale),
             Notification::RESPONSE_TO_TASK_FOR_USER => __('Новый отклик', [], $locale),
-            Notification::CANCELLED_TASK, Notification::ADMIN_CANCEL_TASK => __('3адание отменено', [], $locale),
+            Notification::CANCELLED_TASK, Notification::ADMIN_CANCEL_TASK => __('Задание отменено', [], $locale),
             Notification::ADMIN_COMPLETE_TASK => __('Задания завершено', [], $locale),
             Notification::NEW_PASSWORD => __('Установить пароль', [], $locale),
             Notification::WALLET_BALANCE => __('Дополнительный бонус', [], $locale),
@@ -174,10 +174,10 @@ class NotificationService
             Notification::CANCELLED_TASK => __('Ваше задание task_name №task_id было отменено', [
                 'task_name' => $notification->name_task, 'task_id' => $notification->task_id,
             ], $locale),
-            Notification::ADMIN_COMPLETE_TASK => __('3адание task_name №task_id было завершено администрацией', [
+            Notification::ADMIN_COMPLETE_TASK => __('Задание task_name №task_id было завершено администрацией', [
                 'task_name' => $notification->name_task, 'task_id' => $notification->task_id,
             ], $locale),
-            Notification::ADMIN_CANCEL_TASK => __('3адание task_name №task_id было отменено администрацией', [
+            Notification::ADMIN_CANCEL_TASK => __('Задание task_name №task_id было отменено администрацией', [
                 'task_name' => $notification->name_task, 'task_id' => $notification->task_id,
             ], $locale),
             Notification::NEW_PASSWORD => __('Чтобы не потерять доступ к вашему аккаунту, рекомендуем вам установить пароль. Сделать это можно в профиле, раздел "Настройки".', [], $locale),

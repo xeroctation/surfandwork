@@ -1,6 +1,6 @@
 <div class="w-4/5 mx-auto text-center pt-10">
     <div class="text-3xl font-bold">
-        {{__('Более')}}  {{__('исполнителей')}}
+        {{__('Более')}} 100 {{__('исполнителей')}}
     </div>
     <div class="text-base mt-4">
         {{__('Исполнители готовы помочь вам в решении самых разнообразных задач')}}
@@ -20,7 +20,7 @@
     </div>
 
     <div class="flex flex-col float-left my-10 w-full md:hidden block">
-        @foreach ($categories as $category2)  
+        @foreach ($categories as $category2)
             <span class="flex w-full flex-row items-center sm:my-2 my-1">
                 <img src="{{ asset('storage/'.$category2->ico) }}" alt="" class="h-8 w-8"></i>
                 <a href="{{route('categories', ['id'=> $category2->id])}}"
