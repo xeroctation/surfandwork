@@ -196,26 +196,17 @@
 
                     var maximum = {{$category->max}};
                     if (maximum === Math.floor(ui.value)) {
-                        @if(session('lang') === 'ru')
-                            $("#amount").val(maximum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
-                            $("#amount2").val("{{__('до ')}}" + maximum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " UZS");
-                        @else
-                            $("#amount").val(maximum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
-                            $("#amount2").val(maximum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " so'm" + "{{__('до')}}");
-                        @endif
+                        $("#amount").val(maximum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
+                        $("#amount2").val("{{__('до')}}" + maximum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " UZS");
                     }else if(Math.floor(ui.value) === 0) {
                         $("#amount").val(0);
                         $("#amount2").val(0  + " UZS");
                     }
                     else {
                         var round   = Math.floor(ui.value);
-                        @if(session('lang') === 'ru')
                             $("#amount").val(round.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
-                            $("#amount2").val("{{__('до ')}}" + round.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " UZS");
-                        @else
-                            $("#amount").val(round.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
-                            $("#amount2").val(round.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " so'm" + "{{__('до')}}");
-                        @endif
+                            $("#amount2").val("{{__('до')}} " + round.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " UZS");
+
                     }
 
                 }

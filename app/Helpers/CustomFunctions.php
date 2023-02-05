@@ -34,3 +34,12 @@ function categories()
 
 }
 
+function getLocale()
+{
+    $locale = app()->getLocale();
+
+    if ($locale === 'en') $locale = 'en_Latn';
+    return $locale;
+
+}
+

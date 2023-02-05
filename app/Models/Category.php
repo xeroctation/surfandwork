@@ -21,6 +21,11 @@ class Category extends Model
         return $this->belongsTo(self::class, 'parent_id', 'id');
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
     public function childs(){
         return $this->hasMany(self::class,'parent_id','id');
     }

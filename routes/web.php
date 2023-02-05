@@ -61,6 +61,10 @@ Route::prefix("task")->group(function () {
 Route::get('/completed-task-names', [SearchTaskController::class, 'taskNames'])->name('search.task_name');
 Route::get('task-search', [SearchTaskController::class, 'search_new'])->name('searchTask.task_search');
 Route::post('tasks-search', [SearchTaskController::class, 'search_new2'])->name('searchTask.ajax_tasks');
+Route::get('task/{task}/map', [SearchTaskController::class, 'task_map'])->name('task.map');
+
+Route::get('/detailed-tasks/{task}', [SearchTaskController::class, 'task'])->name("searchTask.task");
+Route::post('/detailed-tasks', [SearchTaskController::class, 'compliance_save'])->name("searchTask.comlianse_save");
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

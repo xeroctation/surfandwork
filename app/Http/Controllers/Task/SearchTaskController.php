@@ -23,30 +23,6 @@ class SearchTaskController extends VoyagerBaseController
         $this->service = new SearchService();
     }
 
-    /**
-     * @param Request $request
-     * @return string
-     */
-    public function taskNames(Request $request): string
-    {
-        $name = $request->get('name');
-        $query = Query::wildcard()
-            ->field('name')
-            ->value('*' . $name . '*');
-        $searchResult = TaskElastic::searchQuery($query)->execute();
-        $tasks = $searchResult->models();
-        $options = "";
-        foreach ($tasks as $task) {
-            $options .= "<option value='$task->name' id='$task->category_id'>$task->name</option>";
-        }
-        return $options;
-    }
-
-    /**
-     * @param Task $task
-     * @param Request $request
-     * @return Factory|View|Application
-     */
     public function task(Task $task, Request $request): Factory|View|Application
     {
         if (!$task->user_id) {
@@ -69,40 +45,8 @@ class SearchTaskController extends VoyagerBaseController
             ]);
     }
 
-    public function search_new()
+    public function task_map(Task $task)
     {
-        $agent = new Agent();
-        $categories = Category::query()->where('parent_id', null)->select('id', 'name')->orderBy("order")->get();
-        $categories2 = Category::query()->where('parent_id', '<>', null)->select('id', 'parent_id', 'name')->orderBy("order")->get();
-        if ($agent->isMobile()) {
-            return view('search_task.mobile_task_search', compact('categories', 'categories2'));
-        }
-
-        return view('search_task.new_search', compact('categories', 'categories2'));
-    }
-
-    public function search_new2(Request $request)
-    {
-
-        $data = collect($request->get('data'))->keyBy('name');
-        $filter = $data['filter']['value'] ?? null;
-        $suggest = $data['suggest']['value'] ?? null;
-
-        $lat = $data['user_lat']['value'] ?? null;
-        $lon = $data['user_long']['value'] ?? null;
-
-        $radius = $data["radius"]['value'] ?? null;
-        $price = $data["price"]['value'] ?? null;
-
-        $filterByStartDate = $data["sortBySearch"]['value'] ?? false;
-        $arr_check = $data->except(['filter', 'suggest', 'user_lat', 'user_long', "radius", "price", 'remjob', 'noresp'])->pluck('name');
-        $remjob = $data['remjob']['value'] ?? false;
-        $noresp = $data['noresp']['value'] ?? false;
-
-        $tasks = $this->service->search_new_service($arr_check, $filter, $suggest, $price, $remjob, $noresp, $radius, $lat, $lon, $filterByStartDate);
-
-        $html = view("search_task.tasks", ['tasks' => $tasks[0]])->render();
-        return response()->json(array('dataForMap' => $tasks[1], 'html' => $html));
-
+        return $task->addresses;
     }
 }
