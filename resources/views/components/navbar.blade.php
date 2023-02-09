@@ -4,7 +4,7 @@
     <nav class="z-10 relative flex items-center xl:w-11/12 mx-auto lg:justify-start text-base" aria-label="Global">
         <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
             {{-- mobile menu --}}
-{{--           @include('components.mobile_menu')--}}
+           @include('components.mobile_menu')
             {{-- mobile menu end--}}
         </div>
 
