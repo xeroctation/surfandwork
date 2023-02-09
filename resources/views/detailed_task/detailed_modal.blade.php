@@ -205,7 +205,7 @@
                     <h2 class="font-semibold text-3xl mb-4 text-center">{{__('Вы еще не исполнитель')}}</h2>
                 </header>
                 <main class="py-6 text-center">
-                    <h1 class="text-xl text-gray-900 text-center my-6 px-4">{{__('Вы еще не являетесь руководителем Universal Services. Присоединяйтесь к списку исполнителей.')}}</h1>
+                    <h1 class="text-xl text-gray-900 text-center my-6 px-4">{{__('Вы еще не являетесь руководителем SurfAndWork. Присоединяйтесь к списку исполнителей.')}}</h1>
                     <a href="{{ route('profile.verificationInfo') }}">
                         <button  class="px-6 py-2 font-sans mb-4 text-lg mt-8 font-semibold bg-yellow-500 hover:bg-yellow-600 text-white rounded-md text-lg">
                             {{__('СТАТЬ ИСПОЛНИТЕЛЕМ')}}

@@ -78,7 +78,7 @@
                     <div
                         class="mt-12 border-2 p-6 rounded-lg border-orange-100 shadow-lg">
                         <h1 class="text-3xl font-semibold py-3">{{__('Хотите найти надежного помощника?')}}</h1>
-                        <p class="mb-10">{{__('Universal Services помогает быстро решать любые бытовые и бизнес-задачи.')}}</p>
+                        <p class="mb-10">{{__('SurfAndWork помогает быстро решать любые бытовые и бизнес-задачи.')}}</p>
                         <a href="/categories/1">
                             <button class="font-sans text-lg font-semibold bg-yellow-500 text-white hover:bg-orange-500 px-8 pt-2 pb-3 rounded">
                                 {{__('Создайте свое задание')}}

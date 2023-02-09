@@ -43,3 +43,12 @@ function getLocale()
 
 }
 
+function correctPhoneNumber($phone)
+{
+    return match (true) {
+        strlen($phone) == 12 => '+' . $phone,
+        strlen($phone) > 13 => substr($phone, 0, 13),
+        default => $phone,
+    };
+}
+

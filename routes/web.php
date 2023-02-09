@@ -55,6 +55,8 @@ Route::prefix("task")->group(function () {
         Route::post('/contact/{task}/store/login/', [CreateController::class, 'contact_login'])->name('task.create.contact.store.login')->middleware('guest');
         Route::get('/verify/{task}/{user}', [CreateController::class, 'verify'])->name('task.create.verify');
         Route::post('/verify/{user}', [UserController::class, 'verifyProfile'])->name('task.create.verification');
+        Route::get('/remote/{task}', [CreateController::class, 'remote_get'])->name('task.create.remote');
+        Route::post('/remote/{task}', [CreateController::class, 'remote_store'])->name('task.create.remote.store');
     });
 });
 

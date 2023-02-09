@@ -2,16 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ResetCodeRequest;
-use App\Http\Requests\ResetEmailRequest;
-use App\Http\Requests\ResetPasswordRequest;
-use App\Http\Requests\ResetRequest;
-use App\Http\Requests\VerifyProfileRequest;
-use App\Mail\VerifyEmail;
 use App\Models\User;
 use App\Models\Task;
-use App\Services\NotificationService;
-use App\Services\SmsMobileService;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;

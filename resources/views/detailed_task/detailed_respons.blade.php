@@ -72,7 +72,7 @@
                         <div id="tooltip-animation-on-2" role="tooltip"
                              class="inline-block  sm:w-2/12 w-1/2 absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
                             <p class="text-center">
-                                {{__('Входит в ТОП-20 исполнителей USer.Uz')}}
+                                {{__('Входит в ТОП-20 исполнителей SurfAndWork')}}
                             </p>
                             <div class="tooltip-arrow" data-popper-arrow></div>
                         </div>
@@ -84,7 +84,7 @@
                         <div id="tooltip-animation-on-top" role="tooltip"
                              class="inline-block  sm:w-2/12 w-1/2 absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
                             <p class="text-center">
-                                {{__('Не входит в ТОП-20 всех исполнителей USer.Uz')}}
+                                {{__('Не входит в ТОП-20 всех исполнителей SurfAndWork')}}
                             </p>
                             <div class="tooltip-arrow" data-popper-arrow></div>
                         </div>
@@ -134,7 +134,7 @@
                                         theme: 'primary',
                                         position: 'center',
                                         closeOnEscape: true,
-                                        headerTitle: 'Universal Services',
+                                        headerTitle: 'SurfAndWork',
                                         headerControls: {
                                             size: 'md',
                                         },
@@ -245,7 +245,7 @@
                             <div id="tooltip-animation-on-2" role="tooltip"
                                  class="inline-block  sm:w-2/12 w-1/2 absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
                                 <p class="text-center">
-                                    {{__('Входит в ТОП-20 исполнителей USer.Uz')}}
+                                    {{__('Входит в ТОП-20 исполнителей SurfAndWork')}}
                                 </p>
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
@@ -257,7 +257,7 @@
                             <div id="tooltip-animation-on-top" role="tooltip"
                                  class="inline-block  sm:w-2/12 w-1/2 absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
                                 <p class="text-center">
-                                    {{__('Не входит в ТОП-20 всех исполнителей USer.Uz')}}
+                                    {{__('Не входит в ТОП-20 всех исполнителей SurfAndWork')}}
                                 </p>
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
@@ -308,7 +308,7 @@
                                                 theme: 'primary',
                                                 position: 'center',
                                                 closeOnEscape: true,
-                                                headerTitle: 'Universal Services',
+                                                headerTitle: 'SurfAndWork',
                                                 headerControls: {
                                                     size: 'md',
                                                 },
@@ -409,7 +409,7 @@
                             <div id="tooltip-animation-on-2" role="tooltip"
                                  class="inline-block  sm:w-2/12 w-1/2 absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
                                 <p class="text-center">
-                                    {{__('Входит в ТОП-20 исполнителей USer.Uz')}}
+                                    {{__('Входит в ТОП-20 исполнителей SurfAndWork')}}
                                 </p>
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
@@ -421,7 +421,7 @@
                             <div id="tooltip-animation-on-top" role="tooltip"
                                  class="inline-block  sm:w-2/12 w-1/2 absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
                                 <p class="text-center">
-                                    {{__('Не входит в ТОП-20 всех исполнителей USer.Uz')}}
+                                    {{__('Не входит в ТОП-20 всех исполнителей SurfAndWork')}}
                                 </p>
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
@@ -470,7 +470,7 @@
                                                 theme: 'primary',
                                                 position: 'center',
                                                 closeOnEscape: true,
-                                                headerTitle: 'Universal Services',
+                                                headerTitle: 'SurfAndWork',
                                                 headerControls: {
                                                     size: 'md',
                                                 },

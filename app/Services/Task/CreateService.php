@@ -2,20 +2,13 @@
 
 namespace App\Services\Task;
 
-use App\Http\Resources\NotificationResource;
 use App\Item\CreateNameItem;
 use App\Models\Address;
 use App\Models\Category;
 use App\Models\CustomField;
 use App\Models\CustomFieldsValue;
-use App\Models\Notification;
 use App\Models\Task;
-use App\Models\User;
-use App\Services\NotificationService;
-use App\Services\SmsMobileService;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Session;
 
 class CreateService
 {

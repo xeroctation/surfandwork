@@ -248,5 +248,26 @@ class CreateController extends Controller
     {
         return view('create.verify', compact('task', 'user'));
     }
+    public function remote_get(int $task_id)
+    {
+        $task = Task::with('category.custom_fields')->find($task_id);
+        return view('create.remote', compact('task'));
+    }
 
+    public function remote_store(Request $request, Task $task)
+    {
+        $data = $request->validate(['radio' => 'required']);
+
+        if ($data['radio'] === 'address') {
+            return redirect()->route("task.create.address", $task->id);
+        }
+
+        if ($data['radio'] === 'remote') {
+            $task->remote = 1;
+            $task->save();
+            return redirect()->route("task.create.date", $task->id);
+        }
+
+        return redirect()->back();
+    }
 }
