@@ -21,10 +21,10 @@ class HomeService
 
     public function category($id){
         $item = new CategoryItem();
-        $item -> categories = Category::withTranslations(['ru', 'en'])->where('parent_id', null)->get();
-        $item -> choosed_category = Category::withTranslations(['ru', 'en'])->where('id', $id)->orderBy("order", "asc")->get();
-        $item -> child_categories = Category::withTranslations(['ru', 'en'])->where('parent_id', $id)->orderBy("order", "asc")->get();
-        $item -> idR = $id;
+        $item->categories = Category::where('parent_id', null)->get();
+        $item->choosed_category = Category::where('id', $id)->orderBy("order", "asc")->get();
+        $item->child_categories = Category::where('parent_id', $id)->orderBy("order", "asc")->get();
+        $item->idR = $id;
         return $item;
     }
 }

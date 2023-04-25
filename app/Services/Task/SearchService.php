@@ -3,18 +3,12 @@
 namespace App\Services\Task;
 
 use App\Item\SearchServiceTaskItem;
-use App\Models\Address;
-use App\Models\ComplianceType;
 use App\Models\Task;
 use App\Models\Category;
 use App\Models\TaskResponse;
 use App\Models\User;
-use App\Models\Compliance;
 use App\Models\Review;
-use App\Services\TelegramService;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class SearchService
@@ -67,5 +61,17 @@ class SearchService
         $day = $value == now()->toDateTimeString() ? "Bugun" : "$value->day-$value->monthName";
         $item->start = "$day  $value->noZeroHour:$minut";
         return $item;
+    }
+
+    public function search_new(?string $lang = 'en') {
+        $categories = Cache::remember('category_' . $lang, now()->addMinute(180), function () use ($lang) {
+            return Category::withTranslations('en')->orderBy("order")->get();
+        });
+
+        $allCategories['categories'] = collect($categories)->where('parent_id', null)->all();
+
+        $allCategories['categories2'] = collect($categories)->where('parent_id', '!=', null)->all();
+
+        return $allCategories;
     }
 }
