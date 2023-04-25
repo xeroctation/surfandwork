@@ -200,7 +200,7 @@
 </div>
 
         {{-- payment modals --}}
-{{--             @include('components.payment')--}}
+             @include('components.payment')
         {{-- payment modals end--}}
 
 

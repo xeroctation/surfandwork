@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
-<div class="h-auto" style="background: #FFF5E5">
+<div class="h-auto" style="background: #FFF5E5;">
     <div class="w-xl">
         <main class="w-11/12 mx-auto grid grid-cols-2 gap-2">
             <div class="col-span-1 lg:block hidden">
@@ -41,7 +41,12 @@
                 </div>
             </div>
             <div class="lg:col-span-1 col-span-2 pt-32 relative z-10">
-{{--                {!! getContentText('home', 'main_text') !!}--}}
+                <h1 class="font-bold text-4xl">
+                    <span class="block text-black">{{ __("С нами всё легко")}}</span>
+                </h1>
+                <p class="mt-3 text-sm md:text-base sm:mt-5 sm:mx-auto md:mt-3 md:md:mt-2 mb-3">
+                    {{ __("Поможем найти надежного исполнителя для любой задачи")}}
+                </p>
                 <div class="mx-auto">
                     <div class="xl:w-4/5 w-full flex-1 mt-8">
                         <input name="TypeList" list="TypeList" type="text" id="header_input" maxlength="40" placeholder="{{__('Чем вам помочь...')}}" onkeyup="searchTaskName()"
@@ -99,15 +104,15 @@
         },
     });
 
-    {{--function searchTaskName()--}}
-    {{--{--}}
-    {{--    $.ajax({--}}
-    {{--        url: '{{route('search.task_name')}}',--}}
-    {{--        data: {name: $("#header_input").val()},--}}
-    {{--        success: function (res) {--}}
-    {{--            $("#TypeList").html(res)--}}
-    {{--        },--}}
-    {{--    });--}}
-    {{--}--}}
+    function searchTaskName()
+    {
+        $.ajax({
+            url: '{{route('search.task_name')}}',
+            data: {name: $("#header_input").val()},
+            success: function (res) {
+                $("#TypeList").html(res)
+            },
+        });
+    }
 
 </script>
