@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\ControllerService;
 use App\Services\HomeService;
 use Illuminate\Support\Facades\Session;
 
