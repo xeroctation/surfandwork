@@ -11,6 +11,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "realrashid/sweet-alert": "^5.1",
+        "rennokki/laravel-eloquent-query-cache": "^3.4",
         "tcg/voyager": "^1.6",
         "teamprodev/laravel_sms_eskiz": "^1.0",
         "vemcogroup/laravel-translation": "^3.0"
