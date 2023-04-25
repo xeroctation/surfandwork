@@ -34,20 +34,20 @@ class Review extends Model
     public static function boot ()
     {
         parent::boot();
-        self::deleting(function (Review $review) {
-            $user = $review->user;
-            if ($user) {
-                switch (true){
-                    case (int)$review->good_bad === 1 && $user->review_good > 0 :
-                        $user->decrement('review_good');
-                        $user->decrement('reviews');
-                        break;
-                    case $user->review_bad > 0 :
-                        $user->decrement('review_bad');
-                        $user->decrement('reviews');
-                        break;
-                }
-            }
-        });
+//        self::deleting(function (Review $review) {
+//            $user = $review->user;
+//            if ($user) {
+//                switch (true){
+//                    case (int)$review->good_bad === 1 && $user->review_good > 0 :
+//                        $user->decrement('review_good');
+//                        $user->decrement('reviews');
+//                        break;
+//                    case $user->review_bad > 0 :
+//                        $user->decrement('review_bad');
+//                        $user->decrement('reviews');
+//                        break;
+//                }
+//            }
+//        });
     }
 }
