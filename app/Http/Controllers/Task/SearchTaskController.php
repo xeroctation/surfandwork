@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Task;
 
-use App\Models\TaskElastic;
 use App\Models\Task;
-use Elastic\ScoutDriverPlus\Support\Query;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Session;
 use TCG\Voyager\Models\Category;
 use Illuminate\Http\Request;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 use App\Services\Task\SearchService;
-use Jenssegers\Agent\Agent;
 
 class SearchTaskController extends VoyagerBaseController
 {
@@ -48,5 +46,16 @@ class SearchTaskController extends VoyagerBaseController
     public function task_map(Task $task)
     {
         return $task->addresses;
+    }
+
+    public function search_new(): Factory|View|Application
+    {
+        $lang = Session::get('lang');
+        $allCategories = $this->service->search_new($lang);
+        $categories = $allCategories['categories'];
+        $categories2 = $allCategories['categories2'];
+
+
+        return view('search_task.new_search', compact('categories', 'categories2'));
     }
 }
