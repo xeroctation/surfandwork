@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PerformersController;
 use App\Http\Controllers\Task\CreateController;
 use App\Http\Controllers\Task\SearchTaskController;
 use App\Http\Controllers\UserController;
@@ -28,11 +29,16 @@ Route::get('/lang/{lang}', [HomeController::class, 'lang'])->name('lang');
 Route::get('/categories/{id}', [HomeController::class, 'category'])->name("categories");
 
 
+
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'loginPost'])->name('login.loginPost')->middleware('guest');
 Route::get('/register', [UserController::class, 'signup'])->name('user.signup')->middleware('guest');
 Route::post('/register', [LoginController::class, 'customRegister'])->name('login.customRegister')->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/my-tasks', [HomeController::class, 'my_tasks'])->name('searchTask.mytasks');
+});
 
 Route::prefix("task")->group(function () {
     Route::prefix("create")->group(function () {
@@ -58,6 +64,12 @@ Route::prefix("task")->group(function () {
         Route::get('/remote/{task}', [CreateController::class, 'remote_get'])->name('task.create.remote');
         Route::post('/remote/{task}', [CreateController::class, 'remote_store'])->name('task.create.remote.store');
     });
+});
+
+Route::group(['prefix' => 'performers'], function () {
+    Route::get('/', [PerformersController::class, 'service'])->name('performers.service');
+    Route::get('/{user}', [PerformersController::class, 'performer'])->name('performers.performer');
+
 });
 
 Route::get('/completed-task-names', [SearchTaskController::class, 'taskNames'])->name('search.task_name');
