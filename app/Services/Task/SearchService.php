@@ -49,7 +49,7 @@ class SearchService
         };
         $value = Carbon::parse($task->created_at)->locale(getLocale());
         $value->minute < 10 ? $minut = '0' . $value->minute : $minut = $value->minute;
-        $day = $value == now()->toDateTimeString() ? "Bugun" : "$value->day-$value->monthName";
+        $day = $value == now()->toDateTimeString() ? "Today" : "$value->day-$value->monthName";
         $item->created = "$day  $value->noZeroHour:$minut";
 
         $value = Carbon::parse($task->end_date)->locale(getLocale());
@@ -58,7 +58,7 @@ class SearchService
 
         $value = Carbon::parse($task->start_date)->locale(getLocale());
         $value->minute < 10 ? $minut = '0' . $value->minute : $minut = $value->minute;
-        $day = $value == now()->toDateTimeString() ? "Bugun" : "$value->day-$value->monthName";
+        $day = $value == now()->toDateTimeString() ? "Today" : "$value->day-$value->monthName";
         $item->start = "$day  $value->noZeroHour:$minut";
         return $item;
     }
