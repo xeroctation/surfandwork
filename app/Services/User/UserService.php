@@ -24,29 +24,14 @@ class UserService
      */
     public function verifyProfile($for_ver_func, $user, $sms_otp): RedirectResponse
     {
-        /** @var Task $task */
-        $task = Task::select('phone')->find($for_ver_func);
 
         if ((int)$sms_otp === (int)$user->verify_code) {
-            if (strtotime($user->verify_expiration) >= strtotime(Carbon::now())) {
-                if ($task->phone === null && $user->phone_number !== $task->phone && (int)$user->is_phone_number_verified === 0) {
-                    $user->update(['is_phone_number_verified' => 0]);
-                } else {
-                    $user->update(['is_phone_number_verified' => 1]);
-                    $user->phone_number = (new CustomService)->correctPhoneNumber($user->phone_number);
-                    $user->save();
-                }
-                if ($task->phone === null) {
-                    Task::findOrFail($for_ver_func)->update([
-                        'status' => 1, 'user_id' => $user->id, 'phone' => (new CustomService)->correctPhoneNumber($user->phone_number)
-                    ]);
-                } else {
-                    Task::findOrFail($for_ver_func)->update(['status' => Task::STATUS_OPEN, 'user_id' => $user->id,]);
-                }
+//            if (strtotime($user->verify_expiration) >= strtotime(Carbon::now())) {
+            if (1) {
+
                 auth()->login($user);
 
                 //send notification
-//                NotificationService::sendTaskNotification($task, $user->id);
 
                 return redirect()->route('searchTask.task', $for_ver_func);
             }

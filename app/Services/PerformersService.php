@@ -4,24 +4,16 @@
 namespace App\Services;
 
 use App\Item\PerformerUserItem;
-use JsonException;
-use App\Http\Resources\NotificationResource;
 use App\Item\PerformerServiceItem;
 use App\Models\{Review, Task, User, UserCategory, UserView, Category};
 use Carbon\Carbon;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Cache;
-use League\Flysystem\WhitespacePathNormalizer;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 
 
 class PerformersService
 {
 
     /**
-     *
      * Function  service
      * This function gives the list of performers
      * @link https://surfandwork/performers
