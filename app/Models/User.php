@@ -70,4 +70,9 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany(Review::class, 'user_id', 'id')->where('good_bad', 0)->whereHas('task');
     }
+
+    public function walletBalance()
+    {
+        return $this->hasOne(WalletBalance::class);
+    }
 }

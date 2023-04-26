@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Services\HomeService;
 use App\Services\VerificationService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class TestService extends Command
 {
@@ -30,8 +31,7 @@ class TestService extends Command
      */
     public function handle()
     {
-        $service = new VerificationService();
-        $user = User::find(1); // replace with the ID of the user you want to verify
-        $item = $service->send_verification($user);
+        $max = DB::table('wallet_balances')->max('id') + 1;
+        DB::statement("ALTER TABLE wallet_balances AUTO_INCREMENT =  $max");
     }
 }
