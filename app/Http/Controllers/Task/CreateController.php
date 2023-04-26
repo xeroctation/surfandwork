@@ -11,7 +11,6 @@ use App\Http\Requests\TaskDateRequest;
 use App\Http\Requests\UserPhoneRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\CustomField;
-use App\Models\Notification;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\WalletBalance;
@@ -223,14 +222,6 @@ class CreateController extends Controller
         $wallBal->balance = setting('admin.bonus');
         $wallBal->user_id = $user->id;
         $wallBal->save();
-        if(setting('admin.bonus')>0){
-            Notification::query()->create([
-                'user_id' => $user->id,
-                'description' => 'wallet',
-                'type' => Notification::WALLET_BALANCE,
-            ]);
-        }
-//        VerificationService::send_verification('phone', $user, $user->phone_number);
         return redirect()->route('task.create.verify', ['task' => $task->id, 'user' => $user->id]);
     }
 
@@ -239,7 +230,7 @@ class CreateController extends Controller
         $request->validated();
         /** @var User $user */
         $user = User::query()->where('phone_number', $request->get('phone_number'))->first();
-        VerificationService::send_verification('phone', $user, $user->phone_number);
+//        VerificationService::send_verification($user, $user->phone_number);
         return redirect()->route('task.create.verify', ['task' => $task->id, 'user' => $user->id])->with(['not-show', 'true']);
 
     }
