@@ -4,7 +4,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerformersController;
 use App\Http\Controllers\Task\CreateController;
+use App\Http\Controllers\Task\ResponseController;
 use App\Http\Controllers\Task\SearchTaskController;
+use App\Http\Controllers\Task\UpdateController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
@@ -65,8 +67,14 @@ Route::prefix("task")->group(function () {
         Route::post('/verify/{user}', [UserController::class, 'verifyProfile'])->name('task.create.verification');
         Route::get('/remote/{task}', [CreateController::class, 'remote_get'])->name('task.create.remote');
         Route::post('/remote/{task}', [CreateController::class, 'remote_store'])->name('task.create.remote.store');
+        Route::post("/detailed-task/{task}/response", [ResponseController::class, 'store'])->name('task.response.store');
+
     });
 });
+Route::post('select-performer/{response}', [ResponseController::class, 'selectPerformer'])->name('response.selectPerformer');
+Route::post('send-review-user/{task}', [UpdateController::class, 'sendReview'])->name('update.sendReview');
+Route::post('tasks/{task}/not-complete', [UpdateController::class, 'not_completed'])->name('update.not_completed');
+
 
 Route::group(['prefix' => 'performers'], function () {
     Route::get('/', [PerformersController::class, 'service'])->name('performers.service');
