@@ -52,6 +52,5 @@
         </div>
     </div>
 
-    @include('performers.performers_modal')
     @include('performers.performer_script')
 @endsection

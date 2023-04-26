@@ -35,9 +35,9 @@
 <x-navbar></x-navbar>
 @yield('content')
 <x-footer></x-footer>
-{{--@include('sweetalert::alert')--}}
+@include('sweetalert::alert')
 
-{{--<x-modal></x-modal>--}}
+<x-modal></x-modal>
 
 </body>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>
