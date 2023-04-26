@@ -40,15 +40,15 @@
                     @endforeach
                 </ul>
             </div>
-{{--            <a href="{{ route('searchTask.task_search') }}"--}}
-{{--               class="task cursor-pointer delete-task hover:text-yellow-500 mr-4 text-[14px] xl:text-[16px] ">{{__('Найти задания')}}</a>--}}
+            <a href="{{ route('searchTask.task_search') }}"
+               class="task cursor-pointer delete-task hover:text-yellow-500 mr-4 text-[14px] xl:text-[16px] ">{{__('Найти задания')}}</a>
             <a href="/performers" class="performer delete-task cursor-pointer hover:text-yellow-500 text-[14px] mr-4 xl:text-[16px] ">{{__('Исполнители')}}</a>
-{{--            @if (Route::has('login'))--}}
-{{--                @auth--}}
-{{--                    <a href="{{ route('searchTask.mytasks') }}" class="mytask delete-task cursor-pointer hover:text-yellow-500 text-[14px] xl:text-[16px] ">{{__('Мои заказы')}}</a>--}}
-{{--                @else--}}
-{{--                @endauth--}}
-{{--            @endif--}}
+            @if (Route::has('login'))
+                @auth
+                    <a href="{{ route('searchTask.mytasks') }}" class="mytask delete-task cursor-pointer hover:text-yellow-500 text-[14px] xl:text-[16px] ">{{__('Мои заказы')}}</a>
+                @else
+                @endauth
+            @endif
         </div>
         <?php
         use App\Models\Notification;
@@ -57,26 +57,6 @@
         @if (Route::has('login'))
             @auth
                 <div class="flex lg:inline-block hidden w-3/12 float-right mt-3">
-                    {{-- icon-1  Notifications  --}}
-                    <div class="max-w-lg mx-auto float-left">
-{{--                        @include('components.notification')--}}
-                    </div>
-
-                    {{-- icon-2   Chat  --}}
-                    <div class="float-left open-chat" style="cursor:pointer">
-{{--                        @php--}}
-{{--                            $messages = App\Http\Controllers\vendor\Chatify\MessagesController::unseenCount();--}}
-{{--                        @endphp--}}
-{{--                        @if($messages > 0)--}}
-{{--                            <div id="content_count"--}}
-{{--                                 class="w-4 h-4 absolute rounded-full bg-red-500 ml-3 text-white text-xs text-center">--}}
-{{--                                {{$messages}}</div>--}}
-{{--                        @endif--}}
-                        <a class="delete-task">
-                            <i class="xl:text-2xl lg:text-xl text-gray-500 hover:text-yellow-500 far fa-comment-alt"></i>
-                        </a>
-                    </div>
-                    {{--  JS Panel--}}
                     <script>
                         const createChatPanel = (event) => {
                             jsPanel.create({

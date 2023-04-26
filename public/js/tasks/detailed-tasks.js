@@ -71,9 +71,12 @@ $(".open-modal").on('click', function (e) {
 });
 
 $('#btn1').click(function () {
+    console.log('btn1 clicked');
     $('#not_free').val(1)
 })
 $('#btn2').click(function () {
+    console.log('btn2 clicked');
+
     $('#not_free').val(0)
 })
 

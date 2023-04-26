@@ -1,8 +1,8 @@
 <div class="w-full flex flex-col sm:flex-row sm:p-6 p-2">
     <div class="w-full text-center">
-{{--        @php--}}
-{{--            $walletBalance = App\Services\Profile\ProfileService::walletBalance(auth()->user());--}}
-{{--        @endphp--}}
+        @php
+            $walletBalance = App\Services\Profile\ProfileService::walletBalance(auth()->user());
+        @endphp
         @auth
             @if($walletBalance >= setting('admin.pullik_otklik'))
                 @if($task->user_id !== auth()->id() && $task->status < 3 && !$auth_response)
@@ -17,7 +17,7 @@
                         id="btn2" type="button" data-modal-toggle="authentication-modal">
                         {{__('Откликнуться на задание бесплатно')}}<br>
                         <span class="text-sm">
-                            {{__('отклик - 0 UZS, контакт с заказчиком - ')}} {{setting('admin.bepul_otklik')}} UZS
+                            {{__('отклик - 0 UZS, контакт с заказчиком')}}
                         </span>
                     </button>
                 @endif
