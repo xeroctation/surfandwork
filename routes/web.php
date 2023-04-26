@@ -35,6 +35,8 @@ Route::post('/login', [LoginController::class, 'loginPost'])->name('login.loginP
 Route::get('/register', [UserController::class, 'signup'])->name('user.signup')->middleware('guest');
 Route::post('/register', [LoginController::class, 'customRegister'])->name('login.customRegister')->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
+Route::get('account/verify/{user}/{hash}', [LoginController::class, 'verifyAccount'])->name('login.verifyAccount');
+Route::get('account/verification/email', [LoginController::class, 'send_email_verification'])->name('login.send_email_verification')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/my-tasks', [HomeController::class, 'my_tasks'])->name('searchTask.mytasks');
