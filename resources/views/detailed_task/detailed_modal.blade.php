@@ -13,13 +13,6 @@
             </div>
             <div class="text-center my-6">
 
-                <form action="{{route('update.not_completed', ['task' => $task])}}" method="POST">
-                    @csrf
-                    <textarea name="reason" required
-                              class="border-2 border-gray-500 rounded-lg p-2 w-4/5 focus:outline-none hover:border-yellow-500"></textarea>
-                    <input type="submit" value="{{__('Отправить')}}" required
-                           class="bg-yellow-500 mt-4 py-3 px-5 rounded-lg text-white text-xl cursor-pointer font-medium border-2 border-gray-500 hover:bg-yellow-600">
-                </form>
 
             </div>
         </div>
@@ -43,22 +36,6 @@
             </div>
             <div class="text-center my-6">
 
-                <form action="{{route('searchTask.comlianse_save')}}" method="POST">
-                    @csrf
-                    <input type="hidden" name="taskId" value="{{ $task->id }}">
-                    <input type="hidden" name="userId"
-                           value="{{ Auth::check() ? Auth::user()->id : $task->user->id}}">
-                    <select name="c_type" id=""
-                            class="w-4/5 border-2 border-gray-500 rounded-lg mb-4 py-2 px-2 focus:outline-none hover:border-yellow-500">
-                        @foreach ($complianceType as $complType)
-                            <option value="{{$complType->id}}">{{$complType->getTranslatedAttribute('name')}}</option>
-                        @endforeach
-                    </select>
-                    <textarea name="c_text" id="" required
-                              class="border-2 border-gray-500 rounded-lg p-2 w-4/5 focus:outline-none hover:border-yellow-500"></textarea>
-                    <input type="submit" value="{{__('Отправить')}}" required
-                           class="bg-yellow-500 mt-4 py-3 px-5 rounded-lg text-white text-xl cursor-pointer font-medium border-2 border-gray-500 hover:bg-yellow-600">
-                </form>
 
             </div>
         </div>
@@ -121,37 +98,7 @@
                 </h3>
             </div>
             <div class="text-center h-64 w-full mx-auto text-base mb-4">
-                <form id="updatereview" action="{{route('update.sendReview', $task->id)}}" method="POST">
-                    @csrf
-                    <div class="">
-                        <div class="flex flex-row justify-center w-full my-4 mx-auto">
-                            <label id="class_demo"
-                                class="cursor-pointer w-32 text-gray-500 border rounded-l hover:bg-green-500 transition duration-300 hover:text-white">
-                                <input type="radio" name="good" checked
-                                    class="good border hidden rounded ml-6 w-8/12"
-                                    value="1">
-                                <i id="icon" class="far fa-thumbs-up text-2xl mr-2"></i><span
-                                    class="relative -top-1" id="good">good</span>
-                            </label>
-                            <label id="class_demo1"
-                                class="cursor-pointer w-32 text-gray-500 border rounded-r hover:bg-red-500 transition duration-300 hover:text-white">
-                                <input type="radio" name="good"
-                                    class="good border hidden rounded ml-6  w-8/12"
-                                    value="0">
-                                <i class="far fa-thumbs-down text-2xl mr-2"></i><span
-                                    class="relative -top-1">bad</span>
-                            </label>
-                        </div>
-                        <textarea name="comment" required class="h-24 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white shadow-lg drop-shadow-xl
-                            border resize-none w-full border-solid border-gray-200 rounded transition ease-in-out m-0 focus:outline-none  focus:border-yellow-500 "></textarea>
 
-                        <button
-                            class="font-sans w-full text-lg font-semibold bg-green-500 text-white hover:bg-green-400 px-12 pt-2 pb-3 rounded transition-all duration-300 mt-8"
-                            type="submit">
-                            {{__('Отправить')}}
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
@@ -206,11 +153,11 @@
                 </header>
                 <main class="py-6 text-center">
                     <h1 class="text-xl text-gray-900 text-center my-6 px-4">{{__('Вы еще не являетесь руководителем SurfAndWork. Присоединяйтесь к списку исполнителей.')}}</h1>
-                    <a href="{{ route('profile.verificationInfo') }}">
-                        <button  class="px-6 py-2 font-sans mb-4 text-lg mt-8 font-semibold bg-yellow-500 hover:bg-yellow-600 text-white rounded-md text-lg">
-                            {{__('СТАТЬ ИСПОЛНИТЕЛЕМ')}}
-                        </button>
-                    </a>
+{{--                    <a href="{{ route('profile.verificationInfo') }}">--}}
+{{--                        <button  class="px-6 py-2 font-sans mb-4 text-lg mt-8 font-semibold bg-yellow-500 hover:bg-yellow-600 text-white rounded-md text-lg">--}}
+{{--                            {{__('СТАТЬ ИСПОЛНИТЕЛЕМ')}}--}}
+{{--                        </button>--}}
+{{--                    </a>--}}
                 </main>
             </div>
         @else

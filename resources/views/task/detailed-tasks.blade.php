@@ -68,9 +68,9 @@
                     {{-- task information --}}
 
                     <div>
-                        {{-- otklik buttons --}}
-{{--                       @include('detailed_task.detailed_buttons')--}}
-                        {{-- otklik buttons --}}
+                        {{-- response buttons --}}
+                       @include('detailed_task.detailed_buttons')
+                        {{-- response buttons --}}
                     </div>
                 </div>
                 @if($task->user_id === auth()->id())
@@ -248,7 +248,7 @@
     </div>
 
     {{-- modal content --}}
-{{--    @include('detailed_task.detailed_modal')--}}
+    @include('detailed_task.detailed_modal')
     {{-- end modal cotent --}}
 
     <script type='text/javascript'

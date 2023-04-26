@@ -7,17 +7,6 @@ use Illuminate\Support\Arr;
 
 class CustomFieldService
 {
-    /*public function getCustomFieldsByRoute($task, $routeName): array
-    {
-        $custom_fields = $task->category->custom_fields()->where('route', $routeName)->get();
-        $result = [];
-        $values = $this->getValuesOfTask($task);
-
-        foreach ($custom_fields as $custom_field) {
-            $result[] = $this->initCustomField($custom_field, $task, $values);
-        }
-        return $result;
-    }*/
 
     public function getCustomFieldsByRoute(int $task_id, string $routeName): array
     {
