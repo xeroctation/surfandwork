@@ -2,8 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use App\Services\HomeService;
-use App\Services\NotificationService;
+use App\Services\VerificationService;
 use Illuminate\Console\Command;
 
 class TestService extends Command
@@ -29,8 +30,8 @@ class TestService extends Command
      */
     public function handle()
     {
-        $service = new HomeService();
-        $item = $service->category(18);
-        dd($item);
+        $service = new VerificationService();
+        $user = User::find(1); // replace with the ID of the user you want to verify
+        $item = $service->send_verification($user);
     }
 }
