@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +15,6 @@ class User extends \TCG\Voyager\Models\User
     public const ROLE_ADMIN = 1;
     public const ROLE_PERFORMER = 2;
     public const ROLE_USER = 5;
-    public const ROLE_MODERATOR = 6;
 
     /**
      * The attributes that are mass assignable.
