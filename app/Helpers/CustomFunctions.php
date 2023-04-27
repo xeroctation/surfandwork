@@ -52,9 +52,4 @@ function correctPhoneNumber($phone)
     };
 }
 
-function getContentText($page, $key)
-{
-    $text = app()->getLocale() === 'uz' ? 'text_uz' : 'text_ru';
-    return \App\Models\Content::query()->where('page', $page)->where('key', $key)->first()->$text;
-}
 
