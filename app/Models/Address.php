@@ -8,13 +8,13 @@ use TCG\Voyager\Traits\Translatable;
 
 /**
  * @property $id
- * @property $task_id  Address qaysi taskka tegishliligini bildiradi
- * @property $location Taskka kiritilgan joylashuvi
- * @property $latitude Address kengligi koordinatasi
- * @property $longitude Address uzunligi koordinatasi
+ * @property $task_id  task id
+ * @property $location $location
+ * @property $latitude Address latitude
+ * @property $longitude Address long
  * @property $default
- * @property $created_at  Address kiritilgan vaqti
- * @property $updated_at  Address o'zgartirilgan vaqti
+ * @property $created_at  Address created time
+ * @property $updated_at  Address updated time
  * @return array //Value Returned
  */
 
