@@ -88,7 +88,7 @@ class PerformersService
     }
 
     /**
-     * user profilining ko'rishlar soni
+     * the number of views of the user profile
      * @param $user
      * @return UserView|bool
      */
