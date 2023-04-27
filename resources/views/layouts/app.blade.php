@@ -31,7 +31,6 @@
 </head>
 <body class=" text-xl">
 
-{{--@include('components.preloader')--}}
 <x-navbar></x-navbar>
 @yield('content')
 <x-footer></x-footer>
