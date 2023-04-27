@@ -98,6 +98,37 @@
                 </h3>
             </div>
             <div class="text-center h-64 w-full mx-auto text-base mb-4">
+                <form id="updatereview" action="{{route('update.sendReview', $task->id)}}" method="POST">
+                    @csrf
+                    <div class="">
+                        <div class="flex flex-row justify-center w-full my-4 mx-auto">
+                            <label id="class_demo"
+                                   class="cursor-pointer w-32 text-gray-500 border rounded-l hover:bg-green-500 transition duration-300 hover:text-white">
+                                <input type="radio" name="good" checked
+                                       class="good border hidden rounded ml-6 w-8/12"
+                                       value="1">
+                                <i id="icon" class="far fa-thumbs-up text-2xl mr-2"></i><span
+                                    class="relative -top-1" id="good">good</span>
+                            </label>
+                            <label id="class_demo1"
+                                   class="cursor-pointer w-32 text-gray-500 border rounded-r hover:bg-red-500 transition duration-300 hover:text-white">
+                                <input type="radio" name="good"
+                                       class="good border hidden rounded ml-6  w-8/12"
+                                       value="0">
+                                <i class="far fa-thumbs-down text-2xl mr-2"></i><span
+                                    class="relative -top-1">bad</span>
+                            </label>
+                        </div>
+                        <textarea name="comment" required class="h-24 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white shadow-lg drop-shadow-xl
+                            border resize-none w-full border-solid border-gray-200 rounded transition ease-in-out m-0 focus:outline-none  focus:border-yellow-500 "></textarea>
+
+                        <button
+                            class="font-sans w-full text-lg font-semibold bg-green-500 text-white hover:bg-green-400 px-12 pt-2 pb-3 rounded transition-all duration-300 mt-8"
+                            type="submit">
+                            {{__('Отправить')}}
+                        </button>
+                    </div>
+                </form>
 
             </div>
         </div>

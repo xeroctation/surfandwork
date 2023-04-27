@@ -6,20 +6,37 @@
         @auth
             @if($walletBalance >= setting('admin.pullik_otklik'))
                 @if($task->user_id !== auth()->id() && $task->status < 3 && !$auth_response)
-                    <button class="sm:w-4/5 w-full font-sans text-lg pay font-semibold bg-green-500 text-white hover:bg-green-600 px-8 pt-1 pb-2 mt-6 rounded-lg transition-all duration-300"
-                        id="btn1" type="button" data-modal-toggle="authentication-modal">
-                        {{__('Откликнуться за ')}} {{setting('admin.pullik_otklik')}} UZS<br>
-                        <span class="text-sm">
-                            {{__('и отправить контакты заказчику')}}<br>
-                        </span>
-                    </button>
-                    <button class="sm:w-4/5 w-full font-sans text-lg font-semibold bg-yellow-500 text-white hover:bg-yellow-600 px-8 pt-1 pb-2 mt-6 rounded-lg transition-all duration-300"
-                        id="btn2" type="button" data-modal-toggle="authentication-modal">
-                        {{__('Откликнуться на задание бесплатно')}}<br>
-                        <span class="text-sm">
-                            {{__('отклик - 0 UZS, контакт с заказчиком')}}
-                        </span>
-                    </button>
+                    <form class="space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8" action="{{route("task.response.store", $task->id)}}" method="post">
+                        @csrf
+                        <header>
+                            <h2 class="font-semibold text-3xl mb-4 text-center">{{__('Откликнуться')}}</h2>
+                        </header>
+                        <main>
+                            <span class="text-base">{{__('Описание отклика')}}</span>
+                            <textarea required
+                                      class="resize-none rounded-md w-full focus:outline-none  focus:border-yellow-500 border border-gray-300 p-4  transition duration-200 mb-4"
+                                      type="text" id="form8" rows="4" name="description"></textarea>
+                            <p class="text-base">{{__('Сколько вы предлагаете')}}</p>
+                            <label>
+                                <input type="text" required onkeypress='validate(event)' id="task_price"
+                                       class="border border-gray-300 rounded-md px-2 border-solid focus:outline-none  focus:border-yellow-500 mr-3 mb-2">UZS
+                                <input type="hidden" name="price" id="price">
+                                <input type="hidden" name="task_user_id"
+                                       class="pays border rounded-md px-2 border-solid focus:outline-none  focus:border-yellow-500 mr-3 my-2"
+                                       value="{{$task->user_id}}">
+                            </label>
+                            <hr>
+                        </main>
+                        <input type="text" class="hidden" id="not_free" name="not_free">
+                        <footer
+                            class="flex justify-center bg-transparent">
+                            <button type="submit"
+                                    class=" bg-yellow-500 font-semibold text-white py-3 w-full rounded-md my-4 hover:bg-orange-500 focus:outline-none shadow-lg hover:shadow-none transition-all duration-300">
+                                {{__('Далее')}}
+                            </button>
+                        </footer>
+
+                    </form>
                 @endif
             @elseif($walletBalance < setting('admin.pullik_otklik') )
                 @if($task->user_id !== auth()->id() && $task->status < 3 && !$auth_response)

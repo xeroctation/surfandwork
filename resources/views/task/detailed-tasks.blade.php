@@ -88,7 +88,7 @@
                 @endif
 
                {{-- task respons  --}}
-{{--                    @include('detailed_task.detailed_respons')--}}
+                    @include('detailed_task.detailed_respons')
                {{-- task respons  --}}
 
                 @if ($task->status === 4)
