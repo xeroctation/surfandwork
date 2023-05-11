@@ -73,16 +73,16 @@
                             <div class="text-gray-500 mt-2">
                                 <div class="flex">
                                     @if(session('lang') === 'ru')
-                                        <a href="{{route('lang', ['lang'=>'uz'])}}" class="hover:text-red-500 mr-2">
-                                            UZ
+                                        <a href="{{route('lang', ['lang'=>'en'])}}" class="hover:text-red-500 mr-2">
+                                            EN
                                         </a>
                                         I
                                         <a href="{{route('lang', ['lang'=>'ru'])}}" class="hover:text-red-500 text-red-500 ml-2">
                                             RU
                                         </a>
                                     @else
-                                        <a href="{{route('lang', ['lang'=>'uz'])}}" class="hover:text-red-500 text-red-500 mr-2">
-                                            UZ
+                                        <a href="{{route('lang', ['lang'=>'en'])}}" class="hover:text-red-500 text-red-500 mr-2">
+                                            EN
                                         </a>
                                         I
                                         <a href="{{route('lang', ['lang'=>'ru'])}}" class="hover:text-red-500 ml-2">

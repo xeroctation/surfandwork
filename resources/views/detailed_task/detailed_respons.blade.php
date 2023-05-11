@@ -30,8 +30,8 @@
                             <i class="fas fa-star text-yellow-500 mr-1"></i>{{ auth()->user()->review_rating }}
                             по {{ auth()->user()->reviews }} отзывам
                         @else
-                            <i class="fas fa-star text-yellow-500 mr-1"></i>{{ auth()->user()->reviews }}
-                            ta sharhdan {{ auth()->user()->review_rating }} ball
+                            <i class="fas fa-star text-yellow-500 mr-1"></i>{{ auth()->user()->review_rating }} rating from {{ auth()->user()->reviews }}
+                            reviews
                         @endif
                     </div>
             </div>
@@ -203,8 +203,8 @@
                             <i class="fas fa-star text-yellow-500 mr-1"></i>{{$selected->performer->review_rating}}
                             по {{ $selected->performer->reviews }} отзывам
                         @else
-                            <i class="fas fa-star text-yellow-500 mr-1"></i>{{ $selected->performer->reviews }}
-                            ta sharhdan {{$selected->performer->review_rating}} ball
+                            <i class="fas fa-star text-yellow-500 mr-1"></i>{{$selected->performer->review_rating}} rating from {{ $selected->performer->reviews }}
+                            reviews
                         @endif
                     </div>
                 </div>
@@ -372,8 +372,8 @@
                             <i class="fas fa-star text-yellow-500 mr-1"></i>{{$response->performer->review_rating}}
                             по {{ $response->performer->reviews }} отзывам
                         @else
-                            <i class="fas fa-star text-yellow-500 mr-1"></i>{{ $response->performer->reviews }}
-                            ta sharhdan {{$response->performer->review_rating}}ball
+                            <i class="fas fa-star text-yellow-500 mr-1"></i>{{$response->performer->review_rating}} rating from {{ $response->performer->reviews }}
+                            reviews
                         @endif
                     </div>
                 </div>

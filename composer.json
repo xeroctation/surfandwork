@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "glhd/aire": "^2.7",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
@@ -14,7 +15,8 @@
         "rennokki/laravel-eloquent-query-cache": "^3.4",
         "tcg/voyager": "^1.6",
         "teamprodev/laravel_sms_eskiz": "^1.0",
-        "vemcogroup/laravel-translation": "^3.0"
+        "vemcogroup/laravel-translation": "^3.0",
+        "yajra/laravel-datatables": "^9.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",

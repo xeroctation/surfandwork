@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerformersController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\Task\CreateController;
 use App\Http\Controllers\Task\ResponseController;
 use App\Http\Controllers\Task\SearchTaskController;
@@ -40,9 +41,12 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
 Route::get('account/verify/{user}/{hash}', [LoginController::class, 'verifyAccount'])->name('login.verifyAccount');
 Route::get('account/verification/email', [LoginController::class, 'send_email_verification'])->name('login.send_email_verification')->middleware('auth');
 
+Route::post('/request',[ReportController::class,'request'])->name('request');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/my-tasks', [HomeController::class, 'my_tasks'])->name('searchTask.mytasks');
 });
+
+
 
 Route::prefix("task")->group(function () {
     Route::prefix("create")->group(function () {
@@ -90,6 +94,14 @@ Route::get('task/{task}/map', [SearchTaskController::class, 'task_map'])->name('
 Route::get('/detailed-tasks/{task}', [SearchTaskController::class, 'task'])->name("searchTask.task");
 Route::post('/detailed-tasks', [SearchTaskController::class, 'compliance_save'])->name("searchTask.comlianse_save");
 
+
+Route::post('/request',[ReportController::class,'request'])->name('request');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::group(['middleware' => 'auth'], static function () {
+        Route::get('report', [ReportController::class, "index"])->name("index");
+        Route::get('report/get', [ReportController::class, "report"])->name("report");
+        Route::get('report/get/child', [ReportController::class, "report_sub"])->name("report_sub");
+        Route::get('report/{id}', [ReportController::class, "index_sub"])->name("index_sub");
+    });
 });

@@ -43,12 +43,12 @@
             <a href="{{ route('searchTask.task_search') }}"
                class="task cursor-pointer delete-task hover:text-yellow-500 mr-4 text-[14px] xl:text-[16px] ">{{__('Найти задания')}}</a>
             <a href="/performers" class="performer delete-task cursor-pointer hover:text-yellow-500 text-[14px] mr-4 xl:text-[16px] ">{{__('Исполнители')}}</a>
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ route('searchTask.mytasks') }}" class="mytask delete-task cursor-pointer hover:text-yellow-500 text-[14px] xl:text-[16px] ">{{__('Мои заказы')}}</a>
-                @else
-                @endauth
-            @endif
+{{--            @if (Route::has('login'))--}}
+{{--                @auth--}}
+{{--                    <a href="{{ route('searchTask.mytasks') }}" class="mytask delete-task cursor-pointer hover:text-yellow-500 text-[14px] xl:text-[16px] ">{{__('Мои заказы')}}</a>--}}
+{{--                @else--}}
+{{--                @endauth--}}
+{{--            @endif--}}
         </div>
         <?php
         use App\Models\Notification;
@@ -84,25 +84,25 @@
 {{--                        $walletBalance = App\Services\Profile\ProfileService::walletBalance(auth()->user());--}}
 {{--                    @endphp--}}
                     {{-- icon 3  Payment--}}
-                    <div class="max-w-lg ml-5 float-left">
-                        <a onclick="toggleModal()" style="cursor:pointer">
-                           <div class="flex flex-row space-x-2 justify-evenly text-green-400 hover:text-yellow-500">
-                                <div>
-                                  <i class="xl:text-2xl lg:text-xl fas fa-wallet"></i>
-                                 </div>
+{{--                    <div class="max-w-lg ml-5 float-left">--}}
+{{--                        <a onclick="toggleModal()" style="cursor:pointer">--}}
+{{--                           <div class="flex flex-row space-x-2 justify-evenly text-green-400 hover:text-yellow-500">--}}
+{{--                                <div>--}}
+{{--                                  <i class="xl:text-2xl lg:text-xl fas fa-wallet"></i>--}}
+{{--                                 </div>--}}
 {{--                               <div class="font-medium py-1 text-center">--}}
 {{--                                   {{$walletBalance}}  @if($walletBalance) enS @endif--}}
 {{--                               </div>--}}
-                           </div>
-                        </a>
-                    </div>
+{{--                           </div>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
 
 
                     {{-- icon-4  Profile  --}}
                     <div class="max-w-lg ml-5 float-left">
-                        <button class="focus:outline-none" type="button" data-dropdown-toggle="dropdowndesk">
-                            <img class="w-8 h-8 border-2 rounded-lg hover:border-yellow-500" src="{{asset('storage/'.auth()->user()->avatar)}}" alt="avatar">
-                        </button>
+{{--                        <button class="focus:outline-none" type="button" data-dropdown-toggle="dropdowndesk">--}}
+{{--                            <img class="w-8 h-8 border-2 rounded-lg hover:border-yellow-500" src="{{asset('storage/'.auth()->user()->avatar)}}" alt="avatar">--}}
+{{--                        </button>--}}
                         <!-- Dropdown menu -->
                         <div class="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4" id="dropdowndesk">
                             <ul class="py-1" aria-labelledby="dropdowndesk">
